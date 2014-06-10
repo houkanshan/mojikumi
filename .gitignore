@@ -1,0 +1,9 @@
+*.DS_Store
+*~
+
+*.orig
+*.swp
+
+.statictmp/
+node_modules/
+bower_components/

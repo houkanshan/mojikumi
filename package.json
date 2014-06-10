@@ -1,0 +1,16 @@
+{
+  "name": "mojikumi",
+  "version": "0.0.1",
+  "description": "A implement of mojikumi (标点挤压) in a hack way through opentype ligature.",
+  "main": "index.styl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "houkanshan",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "~3.7.0",
+    "gulp-stylus": "~1.0.2",
+    "gulp-util": "~2.2.16"
+  }
+}
