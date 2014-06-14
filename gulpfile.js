@@ -3,10 +3,9 @@ var gutil = require('gulp-util')
 
 var stylus = require('gulp-stylus')
 gulp.task('stylus', function () {
-  gulp.src(['index.styl'])
+  gulp.src(['**/*.styl', '!node_modules/**/*', '!bower_components/**/*'])
     .pipe(stylus({
-        include: ['.', './bower_components/',],
-        path: './',
+        include: ['./bower_components/',],
       })
       .on('error', gutil.log))
     .pipe(gulp.dest('./'))

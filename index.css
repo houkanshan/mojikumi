@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'arkyakumono';
+  src: url("/fonts/arkyakumono.eot");
+  src: url("/fonts/arkyakumono.eot?#iefix") format('embedded-opentype'), url("/fonts/arkyakumono.woff") format('woff'), url("/fonts/arkyakumono.ttf") format('truetype'), url("/fonts/arkyakumono.svg#arkicons") format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
