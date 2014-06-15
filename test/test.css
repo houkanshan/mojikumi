@@ -5,3 +5,12 @@ body {
   font-family: 'arkyakumono';
   text-rendering: optimizeLegibility;
 }
+#test {
+  font-family: 'arkyakumono';
+  text-rendering: optimizeLegibility;
+}
+#test span {
+  margin: 0 1em;
+  display: inline-block;
+  border-bottom: 1px solid #f00;
+}

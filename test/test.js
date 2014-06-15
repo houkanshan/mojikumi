@@ -22,7 +22,7 @@
         or full stops (cl-06), remove the default half em space between them \
         and, in principle, add a half em space after the closing brackets \
         (see Fig. 3.13 ①).'
-    , patters: [
+    , patterns: [
         {
           pairs: ['fullStops', 'closeingBrackets']
         , assetWidth: '1.5' // em
@@ -43,7 +43,7 @@
         between them and, in middle of a line, add a half em space after the full stop; \
         at the end of a line, in principle, add a half em space after the full \
         stop (see Fig. 3.13 ②).'
-    , patters: [
+    , patterns: [
         {
           pairs: ['closeingBrackets', 'commas']
         , assetWidth: '1.5' // em
@@ -65,7 +65,7 @@
         Note that when full stops (cl-06) come in the bottom of lines, \
         in principle, insert a half space after full stops (cl-06). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['commas', 'openingBrackets']
         , assetWidth: '1.5' // em
@@ -83,7 +83,7 @@
         closing brackets (cl-02), in principle, add a half em space between \
         them (see Fig. 3.13 ④). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['closeingBrackets', 'openingBrackets']
         , assetWidth: '1.5' // em
@@ -98,7 +98,7 @@
         brackets (cl-01), set them solid and, in principle, add a half em space \
         before the first one (see Fig. 3.13 ⑤). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['openingBrackets', 'openingBrackets']
         , assetWidth: '1.5' // em
@@ -113,7 +113,7 @@
         other closing brackets (cl-02), set them solid and, in principle, \
         add a half em space after the last closing bracket (see Fig. 3.13 ⑥). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['closeingBrackets', 'closeingBrackets']
         , assetWidth: '1.5' // em
@@ -128,7 +128,7 @@
         in principle, add a quarter em space before the following middle dot \
         (see Fig. 3.13 ⑦). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['closeingBrackets', 'middleDots']
         , assetWidth: '1.25' // em
@@ -143,7 +143,7 @@
         in principle, add a quarter em space after the preceding middle dot \
         (see Fig. 3.13 ⑦). \
         '
-    , patters: [
+    , patterns: [
         {
           pairs: ['middleDots', 'openingBrackets']
         , assetWidth: '1.25' // em
@@ -157,9 +157,38 @@
   ]
 
   var testContainer = $('#test')
-  _.each(rules, appendRule())
 
+  _.each(rules, appendRule)
   function appendRule(rule) {
+    _.each(rule.patterns, appendPattern)
+  }
+  function appendPattern(pattern) {
+    var pairs = _.map(pattern.pairs, function(markClassName) {
+          return _.clone(marks[markClassName])
+        })
+    var combinations = getAllCombinations(pairs)
 
+    _.each(combinations, appendCombination)
+  }
+
+  function appendCombination(combination) {
+    testContainer.append($('<span>').append(combination.join('')))
+  }
+
+
+
+  function getAllCombinations(pairs) {
+    if (pairs.length === 1) {
+      return _.clone(pairs[0])
+    }
+
+    var combinations = []
+    var subCombinations = getAllCombinations(pairs.slice(1))
+    _.each(pairs[0], function(pair) {
+      _.each(subCombinations, function(subCombination) {
+        combinations.push([pair].concat(subCombination))
+      })
+    })
+    return combinations
   }
 }())
