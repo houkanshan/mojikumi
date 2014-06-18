@@ -1,7 +1,7 @@
 ;(function() {
   var marks = {
     openingBrackets: '‘“（〔［｛〈《「『【｟〘〖«〝'.split('')
-  , closeingBrackets: '’”）〕］｝〉》」』】｠〙〗»	〟'.split('')
+  , closeingBrackets: '’”）〕］｝〉》」』】｠〙〗»〟'.split('')
   , middleDots: '・'.split('')
   , fullStops: '。．'.split('')
   , commas: '、，：；'.split('')
@@ -131,7 +131,8 @@
     , patterns: [
         {
           pairs: ['closeingBrackets', 'middleDots']
-        , assetWidth: '1.25' // em
+        //, assetWidth: '1.25' // em
+        , assetWidth: '0' // Let it failed.
         }
       ]
     }
@@ -146,11 +147,13 @@
     , patterns: [
         {
           pairs: ['middleDots', 'openingBrackets']
-        , assetWidth: '1.25' // em
+        //, assetWidth: '1.25' // em
+        , assetWidth: '0' // Let it failed.
         }
       , {
           pairs: ['closeingBrackets', 'middleDots', 'openingBrackets']
-        , assetWidth: '2' // em
+        //, assetWidth: '2' // em
+        , assetWidth: '0' // Let it failed.
         }
       ]
     }
