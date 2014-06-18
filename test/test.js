@@ -231,5 +231,5 @@
 
   appendRules()
   // Wait for web font's loading
-  setTimeout(test, 1000)
+  setTimeout(test, 3000)
 }())
