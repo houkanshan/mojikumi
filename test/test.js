@@ -161,8 +161,10 @@
           '<span class="tab">' +
             '<span class="wrap">{{COMB}}</span>' +
           '</span>'
+  function appendRules() {
+    _.each(rules, appendRule.bind(this, testContainer))
+  }
 
-  _.each(rules, appendRule.bind(this, testContainer))
   function appendRule(el, rule) {
     var ruleContainer = $('<li>')
                 .append($('<blockquote>').text(rule.detail))
@@ -176,6 +178,8 @@
           return _.clone(marks[markClassName])
         })
     var combinations = getAllCombinations(pairs)
+
+    el.attr('data-asset', pattern.assetWidth)
 
     _.each(combinations, appendCombination.bind(this, el))
   }
@@ -200,4 +204,29 @@
     })
     return combinations
   }
+
+  var emInPx = 20
+    , tolerantInPx = 5
+    , total = 0
+    , passedCnt = 0
+    , testEl = $('#test')
+  function test() {
+    testEl.find('span.wrap').each(function(i, el) {
+      total += 1
+      el = $(el)
+      var asset = el.closest('[data-asset]').data('asset')
+        , passed = Math.abs(el.width() - asset * emInPx) < tolerantInPx
+      if (passed) {
+        el.addClass('passed')
+        passedCnt += 1
+      }
+    })
+
+    testEl.find('[name=passed-count]').text(passedCnt)
+    testEl.find('[name=failed-count]').text(total - passedCnt)
+  }
+
+  appendRules()
+  // Wait for web font's loading
+  setTimeout(test, 1000)
 }())

@@ -7,6 +7,7 @@ body
   line-height: 1.8
   color: #333
   font: 20px/1.8 $SansFont
+  padding-bottom: 136px
 
 article
   width: 1000px
@@ -34,7 +35,7 @@ article
   .after
     position: relative
     &:before
-      content: 'xx'
+      content: ''
       position: absolute
       display: block
       right: 100%
@@ -76,7 +77,19 @@ article
   .wrap
     margin: 0 1em
     display: inline-block
-    border-bottom: 1px solid red
+    border-bottom: 4px solid #e64c66
     &:hover
       cursor: pointer
       text-rendering: optimizeSpeed
+  .passed
+    border-color: #1bbc9b
+  .result
+    margin-top: 88px
+    border-top: 1px solid #dedede
+    padding-top: 88px
+    text-align: center
+    .passed
+    .failed
+      border-bottom: 3px solid #e64c66
+    .passed
+      border-color: #1bbc9b

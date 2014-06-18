@@ -3,6 +3,7 @@ body {
   line-height: 1.8;
   color: #333;
   font: 20px/1.8 Georgia, Cambria, "Times New Roman", Times, serif;
+  padding-bottom: 136px;
 }
 article {
   width: 1000px;
@@ -36,7 +37,7 @@ article footer {
 }
 .yakumono .before:before,
 .yakumono .after:before {
-  content: 'xx';
+  content: '';
   position: absolute;
   display: block;
   right: 100%;
@@ -84,9 +85,25 @@ article footer {
 #test .wrap {
   margin: 0 1em;
   display: inline-block;
-  border-bottom: 1px solid #f00;
+  border-bottom: 4px solid #e64c66;
 }
 #test .wrap:hover {
   cursor: pointer;
   text-rendering: optimizeSpeed;
+}
+#test .passed {
+  border-color: #1bbc9b;
+}
+#test .result {
+  margin-top: 88px;
+  border-top: 1px solid #dedede;
+  padding-top: 88px;
+  text-align: center;
+}
+#test .result .passed,
+#test .result .failed {
+  border-bottom: 3px solid #e64c66;
+}
+#test .result .passed {
+  border-color: #1bbc9b;
 }
