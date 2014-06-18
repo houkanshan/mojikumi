@@ -1,14 +1,82 @@
+// From arkui
+$SansFont = Georgia, Cambria, "Times New Roman", Times, serif
+$KaiCnFont = STKaiti, "AR PL UKai", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, "TW-Kai"
+
 body
-  font-size: 12px
+  font-size: 20px
   line-height: 1.8
+  color: #333
+  font: 20px/1.8 $SansFont
+
+article
+  width: 1000px
+  margin: 0 auto
+  a
+    text-decoration: none
+    color: #000
+    font-family: $KaiCnFont
+    opacity: 0.7
+    &:hover
+      opacity: 1
+  footer
+    text-align: right
+    font-size: 13px
+    margin-bottom: 40px
+
 .yakumono
-  font-family: 'arkyakumono'
+  font-family: 'arkyakumono', $SansFont
   text-rendering: optimizeLegibility
+  .before
+    text-rendering: optimizeSpeed
+    color: #888
+
+  .before
+  .after
+    position: relative
+    &:before
+      content: 'xx'
+      position: absolute
+      display: block
+      right: 100%
+      text-align: right
+      width: 60px
+      margin-right: 20px
+      color: #aaa
+      border-top: 1px solid rgba(@color, 0.4)
+      padding-top: 6px
+      font-size: 14px
+
+  .before:before
+    content: 'Before'
+  .after:before
+    content: 'After'
+
+#intro
+  width: 700px
+  margin: 0 auto
+  span
+    &:hover
+      cursor: pointer
+      text-rendering: optimizeSpeed
 
 #test
-  font-family: 'arkyakumono'
+  ul
+    list-style: lower-alpha inside
+  li
+    margin-bottom: 30px
+  blockquote
+    font-size: 13px
+    color: #666
+    font-weight: 200
+  font-family: 'arkyakumono', $SansFont
   text-rendering: optimizeLegibility
-  span
+  .tab
+    width: 5em
+    display: inline-block
+  .wrap
     margin: 0 1em
     display: inline-block
     border-bottom: 1px solid red
+    &:hover
+      cursor: pointer
+      text-rendering: optimizeSpeed

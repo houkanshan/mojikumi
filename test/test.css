@@ -1,17 +1,92 @@
 body {
-  font-size: 12px;
+  font-size: 20px;
   line-height: 1.8;
+  color: #333;
+  font: 20px/1.8 Georgia, Cambria, "Times New Roman", Times, serif;
+}
+article {
+  width: 1000px;
+  margin: 0 auto;
+}
+article a {
+  text-decoration: none;
+  color: #000;
+  font-family: STKaiti, "AR PL UKai", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, "TW-Kai";
+  opacity: 0.7;
+}
+article a:hover {
+  opacity: 1;
+}
+article footer {
+  text-align: right;
+  font-size: 13px;
+  margin-bottom: 40px;
 }
 .yakumono {
-  font-family: 'arkyakumono';
+  font-family: 'arkyakumono', Georgia, Cambria, "Times New Roman", Times, serif;
   text-rendering: optimizeLegibility;
+}
+.yakumono .before {
+  text-rendering: optimizeSpeed;
+  color: #888;
+}
+.yakumono .before,
+.yakumono .after {
+  position: relative;
+}
+.yakumono .before:before,
+.yakumono .after:before {
+  content: 'xx';
+  position: absolute;
+  display: block;
+  right: 100%;
+  text-align: right;
+  width: 60px;
+  margin-right: 20px;
+  color: #aaa;
+  border-top: 1px solid rgba(170,170,170,0.4);
+  padding-top: 6px;
+  font-size: 14px;
+}
+.yakumono .before:before {
+  content: 'Before';
+}
+.yakumono .after:before {
+  content: 'After';
+}
+#intro {
+  width: 700px;
+  margin: 0 auto;
+}
+#intro span:hover {
+  cursor: pointer;
+  text-rendering: optimizeSpeed;
 }
 #test {
-  font-family: 'arkyakumono';
+  font-family: 'arkyakumono', Georgia, Cambria, "Times New Roman", Times, serif;
   text-rendering: optimizeLegibility;
 }
-#test span {
+#test ul {
+  list-style: lower-alpha inside;
+}
+#test li {
+  margin-bottom: 30px;
+}
+#test blockquote {
+  font-size: 13px;
+  color: #666;
+  font-weight: 200;
+}
+#test .tab {
+  width: 5em;
+  display: inline-block;
+}
+#test .wrap {
   margin: 0 1em;
   display: inline-block;
   border-bottom: 1px solid #f00;
+}
+#test .wrap:hover {
+  cursor: pointer;
+  text-rendering: optimizeSpeed;
 }

@@ -2,9 +2,9 @@
   var marks = {
     openingBrackets: '‘“（〔［｛〈《「『【｟〘〖«〝'.split('')
   , closeingBrackets: '’”）〕］｝〉》」』】｠〙〗»	〟'.split('')
-  , middleDots: '・：；'.split('')
+  , middleDots: '・'.split('')
   , fullStops: '。．'.split('')
-  , commas: '、，'.split('')
+  , commas: '、，：；'.split('')
 
   , middleBefore: ['M']
   , middleAfter: ['M']
@@ -156,25 +156,34 @@
     }
   ]
 
-  var testContainer = $('#test')
+  var testContainer = $('#rules-list')
+    , combinationTmpl =
+          '<span class="tab">' +
+            '<span class="wrap">{{COMB}}</span>' +
+          '</span>'
 
-  _.each(rules, appendRule)
-  function appendRule(rule) {
-    _.each(rule.patterns, appendPattern)
+  _.each(rules, appendRule.bind(this, testContainer))
+  function appendRule(el, rule) {
+    var ruleContainer = $('<li>')
+                .append($('<blockquote>').text(rule.detail))
+                .append($('<p>'))
+    ruleContainer.appendTo(el)
+
+    _.each(rule.patterns, appendPattern.bind(this, ruleContainer.find('p')))
   }
-  function appendPattern(pattern) {
+  function appendPattern(el, pattern) {
     var pairs = _.map(pattern.pairs, function(markClassName) {
           return _.clone(marks[markClassName])
         })
     var combinations = getAllCombinations(pairs)
 
-    _.each(combinations, appendCombination)
+    _.each(combinations, appendCombination.bind(this, el))
   }
 
-  function appendCombination(combination) {
-    testContainer.append($('<span>').append(combination.join('')))
+  function appendCombination(el, combination) {
+    el.append(
+      combinationTmpl.replace('{{COMB}}', combination.join('')))
   }
-
 
 
   function getAllCombinations(pairs) {
