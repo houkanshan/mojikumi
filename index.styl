@@ -1,5 +1,5 @@
-// Modified from arkui (http://github.com/mockee/arkui)
-iconic-font(name='arkicons', path='/fonts/', fontFamily='arkicons', has_block=false)
+// Modified from arkui/iconic.styl (http://github.com/mockee/arkui)
+font-face(name='arkicons', path='/fonts/', fontFamily='arkicons', has_block=false)
   @font-face
     // IE9 Compat modes: eot
     // IE6-IE8: #iefix
@@ -16,6 +16,7 @@ iconic-font(name='arkicons', path='/fonts/', fontFamily='arkicons', has_block=fa
       font-weight: normal
       font-style: normal
 
-+iconic-font(name: 'arkyakumono', path: "/fonts/", fontFamily: 'arkyakumono', has_block: true)
+font-path ?= '/fonts/'
++font-face(name: 'arkyakumono', path: font-path, fontFamily: 'arkyakumono', has_block: true)
   font-weight: 400
   font-style: normal
