@@ -3,7 +3,7 @@ mojikumi
 
 http://houkanshan.github.io/mojikumi/test/
 
-A implement of mojikumi (标点挤压) in a hack way by kerning.
+A implement of mojikumi (标点挤压) by kerning.
 
 ![screenshot](http://houkanshan.github.io/mojikumi/screenshots/Mojikumi.png)
 
