@@ -30,12 +30,14 @@ article footer {
   margin-bottom: 40px;
 }
 .yakumono {
-  font-family: 'arkyakumono', Georgia, Cambria, "Times New Roman", Times, serif;
   text-rendering: optimizeLegibility;
 }
 .yakumono .before {
   text-rendering: optimizeSpeed;
   color: #888;
+}
+.yakumono .before {
+  font-family: 'arkyakumono', Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .yakumono .before,
 .yakumono .after {
